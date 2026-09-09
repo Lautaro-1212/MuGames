@@ -1,0 +1,58 @@
+.logo-container {
+    transform: translateY(-15vh);
+}
+
+.logo {
+    width: clamp(30px, 30vw, 240px);
+    height: auto;
+
+    transform-origin: 50% 50%;
+    animation: logo-animation 4s linear infinite;
+}
+
+@keyframes logo-animation {
+
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    10% {
+        transform: scale(1.1) rotate(36deg);
+    }
+
+    20% {
+        transform: scale(1) rotate(72deg);
+    }
+
+    30% {
+        transform: scale(1.08) rotate(108deg);
+    }
+
+    40% {
+        transform: scale(1) rotate(144deg);
+    }
+
+    50% {
+        transform: scale(1) rotate(180deg);
+    }
+
+    60% {
+        transform: scale(1.08) rotate(216deg);
+    }
+
+    70% {
+        transform: scale(1) rotate(252deg);
+    }
+
+    80% {
+        transform: scale(1.1) rotate(288deg);
+    }
+
+    90% {
+        transform: scale(1) rotate(324deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(360deg);
+    }
+}
