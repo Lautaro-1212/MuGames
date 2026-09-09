@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    background: var(--color-background);
+}
+
+.tv-frame {
+    margin: 3vh 2vw;
+    background-color: var(--color-background-frame);
+    border: 30px solid var(--color-border-screen);
+    border-radius: 40px;
+    padding: 20px;
+    height: 82%;
+}
+
+.tv-screen {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+h1{
+    color: white;
+}
