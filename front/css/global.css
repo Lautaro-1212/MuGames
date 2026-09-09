@@ -4,12 +4,12 @@ body {
 }
 
 .tv-frame {
-    margin: 3vh 2vw;
+    margin: 1vh 1vw;
     background-color: var(--color-background-frame);
     border: 30px solid var(--color-border-screen);
     border-radius: 40px;
     padding: 20px;
-    height: 82%;
+    height: 81%;
 }
 
 .tv-screen {
