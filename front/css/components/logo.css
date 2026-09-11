@@ -1,6 +1,3 @@
-.logo-container {
-    transform: translateY(-12vh);
-}
 
 .logo {
     width: clamp(30px, 30vw, 240px);

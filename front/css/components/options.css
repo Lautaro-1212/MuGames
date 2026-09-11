@@ -1,0 +1,13 @@
+.options{
+    margin: 0;
+
+    font-family: "Cooper BT", serif;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    color: var(--color-font-title);
+
+    text-shadow:
+        0 0 5px var(--color-shadow-options),
+        0 0 5px var(--color-shadow-options),
+        0 0 20px var(--color-shadow-options),
+        0 0 40px var(--color-shadow-options);
+}

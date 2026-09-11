@@ -8,7 +8,7 @@ body {
 }
 
 .tv-frame {
-    margin: 1vh 1vw;
+    margin: 3vh 1vw;
 
     background-color: var(--color-background-frame);
     border: 30px solid var(--color-border-screen);
@@ -28,7 +28,7 @@ body {
 
     overflow: hidden;
 
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     gap:2vh;
@@ -36,6 +36,13 @@ body {
     border-radius: 20px;
 }
 
-h1{
-    color: white;
+.header{
+    gap: 3rem;
+}
+
+.options-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
 }
