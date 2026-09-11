@@ -1,0 +1,12 @@
+.title {
+    font-family: "Cooper BT", serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-font-title);
+    transform: translateY(-15vh);
+
+    text-shadow:
+        0 0 5px #d62323,
+        0 0 5px var(--color-shadow-title),
+        0 0 20px var(--color-shadow-title),
+        0 0 40px var(--color-shadow-title);
+}
