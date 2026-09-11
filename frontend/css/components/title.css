@@ -1,6 +1,6 @@
 .title {
     font-family: "Cooper BT", serif;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(3rem, 5vw, 7rem);
     color: var(--color-font-title);
 
     text-shadow:
