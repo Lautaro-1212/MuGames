@@ -8,12 +8,13 @@ body {
 }
 
 .tv-frame {
+    position: relative;
+
     margin: 3vh 1vw;
 
     background-color: var(--color-background-frame);
     border: 30px solid var(--color-border-screen);
     border-radius: 40px;
-    padding: 20px;
 
     height: 93vh;
 }
@@ -28,16 +29,18 @@ body {
 
     overflow: hidden;
 
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
-    gap:2vh;
+    gap:6vh;
 
     border-radius: 20px;
 }
 
 .header{
-    gap: 3rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .options-container{
