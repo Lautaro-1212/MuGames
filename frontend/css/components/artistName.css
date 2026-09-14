@@ -1,0 +1,5 @@
+.artistName{
+    font-family: "Cooper BT", serif;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    color: var(--color-font-title);
+}

@@ -1,0 +1,5 @@
+.question{
+    font-family: "Cooper BT", serif;
+    font-size: clamp(3rem, 5vw, 7rem);
+    color: var(--color-font-title);
+}
