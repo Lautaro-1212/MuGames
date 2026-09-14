@@ -49,3 +49,10 @@ body {
     flex-direction: column;
     gap: 2rem;
 }
+
+.modo-container{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 15rem;
+}
