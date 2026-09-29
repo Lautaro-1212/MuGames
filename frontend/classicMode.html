@@ -15,10 +15,13 @@
     <link rel="stylesheet" href="./css/components/question.css">
     <link rel="stylesheet" href="./css/components/artistName.css">
     <link rel="stylesheet" href="./css/components/songImage.css">
+    <link rel="stylesheet" href="./css/components/bar.css">
 </head>
 <body>
     <div class="tv-frame">
+
         <a href="modes.html" class="exit">Salir</a>
+
         <div class="tv-screen">
 
             <div class="header">
@@ -32,7 +35,11 @@
 
                 <p class="artistName">Andres Calamaro</p>
 
-                <img src="./assets/images/barra.png" alt="barra">
+                <div class="progress-container">
+
+                    <div id="progress"></div>
+
+                </div>
             </div>
 
             <div class="modes-container">
@@ -41,5 +48,7 @@
 
         </div>
     </div>
+    
+    <script src="./js/bar.js"></script>
 </body>
 </html>
