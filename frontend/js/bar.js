@@ -1,34 +1,33 @@
-const progressBar = document.querySelector("#progress");
+const progress = document.querySelector("#progress");
 
-document.addEventListener("click", () => {
+export function progressBar(song){
+    document.addEventListener("click", () => {
 
     const audio = document.createElement("audio");
 
-    audio.src = "./assets/audio/Milo J, Radamel - Radamel (Visualizer) [eKX1uoKDDaI].mp3";
+    audio.src = song.src;
 
     document.body.appendChild(audio);
 
-    const inicio = 0;
-    const duracion = 15;
-    const fin = inicio + duracion;
+    const end = song.start + song.duration;
 
     audio.addEventListener("loadedmetadata", () => {
         console.log("Duración:", audio.duration);
 
-        audio.currentTime = inicio;
+        audio.currentTime = song.start;
     });
 
     audio.addEventListener("timeupdate", () => {
 
-        const transcurrido = audio.currentTime - inicio;
+        const transcurrido = audio.currentTime - song.start;
 
-        const porcentaje = (transcurrido / duracion) * 100;
+        const porcentaje = (transcurrido / song.duration) * 100;
 
-        progressBar.style.width = `${Math.min(porcentaje, 100)}%`;
+        progress.style.width = `${Math.min(porcentaje, 100)}%`;
 
-        if (audio.currentTime >= fin) {
+        if (audio.currentTime >= end) {
             audio.pause();
-            progressBar.style.width = "100%";
+            progress.style.width = "100%";
         }
     });
 
@@ -36,4 +35,5 @@ document.addEventListener("click", () => {
         .then(() => console.log("REPRODUCIENDO"))
         .catch(error => console.error(error));
 
-}, { once: true });
+    }, { once: true });
+}
