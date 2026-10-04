@@ -1,0 +1,23 @@
+.songOptions{
+    background-color: var(--color-buttons-classicMode);
+
+    font-family: "Cooper BT", serif;
+    font-size: 250%;
+    color: var(--color-font-title);
+    
+    border: none;
+    border-radius: 10px;
+    padding: 0.4rem;
+
+    cursor: pointer;
+}
+
+.songOptions:active{
+    background-color: #7f7f7f; 
+    color: #c6c4c4;
+}
+
+.songOptions:hover{
+    background-color: #7f7f7f;
+    color: #c6c4c4;
+}

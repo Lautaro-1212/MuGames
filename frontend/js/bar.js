@@ -5,7 +5,7 @@ export function progressBar(song){
 
     const audio = document.createElement("audio");
 
-    audio.src = song.src;
+    audio.src = song.songSrc;
 
     document.body.appendChild(audio);
 

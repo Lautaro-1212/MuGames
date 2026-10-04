@@ -63,3 +63,8 @@ body {
     align-items: center;
     gap: 15rem;
 }
+
+.optionsSongs-container{
+    display: flex;
+    gap: 2rem;
+}

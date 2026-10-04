@@ -1,11 +1,13 @@
 import { progressBar } from "./bar.js";
-import { optionsGenerator } from "./optionsGenerator.js"
+import { ClassicUIGenerator } from "./classicModeUI.js"
 
 const buttons = document.querySelectorAll(".song");
 
 const songs = [{
         name: "Radamel",
-        src: "./assets/audio/Milo J, Radamel - Radamel (Visualizer) [eKX1uoKDDaI].mp3",
+        artist: "Radamel",
+        songSrc: "./assets/audio/Milo J, Radamel - Radamel (Visualizer) [eKX1uoKDDaI].mp3",
+        imageSrc: "./assets/images/LEMC.jpeg",
         start: 20,
         duration: 5,
         isCorrect: true
@@ -27,4 +29,4 @@ const songs = [{
 ]
 
 progressBar(songs[0])
-optionsGenerator(songs)
+ClassicUIGenerator(songs)
