@@ -43,6 +43,12 @@ body {
     flex-direction: column;
 }
 
+.songInformation{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .options-container{
     display: flex;
     align-items: center;
