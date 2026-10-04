@@ -1,4 +1,3 @@
-import { progressBar } from "./bar.js";
 import { ClassicUIGenerator } from "./classicModeUI.js"
 
 const buttons = document.querySelectorAll(".song");
@@ -25,6 +24,4 @@ const songs = [{
     }
 ]
 
-
-progressBar(songs[0])
 ClassicUIGenerator(songs)

@@ -6,6 +6,7 @@ export function ClassicUIGenerator(songs){
 
     informationSongGenerator(correctSong)
     optionsGenerator(songs)
+    barGenerator(correctSong)
 }
 
 function informationSongGenerator(correctSong){
@@ -47,4 +48,48 @@ function optionsGenerator(songs){
 
         optionsSongsContainer.appendChild(button)
     }
+}
+
+function barGenerator(correctSong){
+    const progress = document.querySelector("#progress");
+
+    document.addEventListener("click", () => {
+
+        const audio = document.createElement("audio");
+        audio.src = correctSong.songSrc;
+
+        let start;
+        let end;
+
+        document.body.appendChild(audio);
+
+        audio.addEventListener("loadedmetadata", () => {
+
+            start = Math.floor(Math.random() * (audio.duration - 10));
+            end = start + correctSong.duration;
+
+            console.log("Empieza " + start)
+            console.log("Termina en " + end)
+
+            audio.currentTime = start;
+
+            audio.play()
+                .then(() => console.log("REPRODUCIENDO"))
+                .catch(error => console.error(error));
+        });
+
+        audio.addEventListener("timeupdate", () => {
+
+            const transcurrido = audio.currentTime - start;
+            const porcentaje = (transcurrido / correctSong.duration) * 100;
+
+            progress.style.width = `${Math.min(porcentaje, 100)}%`;
+
+            if (audio.currentTime >= end) {
+                audio.pause();
+                progress.style.width = "100%";
+            }
+        });
+
+    }, { once: true });
 }
