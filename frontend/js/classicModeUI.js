@@ -1,18 +1,19 @@
+import { gameState } from "./gameState.js"
+
 const songInformation = document.querySelector(".songInformation")
 const optionsSongsContainer = document.querySelector(".optionsSongs-container")
 
 export function ClassicUIGenerator(songs){
-    const correctSong = songs.find(song => song.isCorrect === true)
 
-    informationSongGenerator(correctSong)
+    informationSongGenerator(gameState.currentSong)
     optionsGenerator(songs)
-    barGenerator(correctSong)
+    barGenerator(gameState.currentSong)
 }
 
-function informationSongGenerator(correctSong){
+function informationSongGenerator(){
     const img = document.createElement("img")
 
-    img.src = correctSong.imageSrc;
+    img.src = gameState.currentSong.imageSrc;
 
     img.alt = "Imagen cancion";
 
@@ -20,7 +21,7 @@ function informationSongGenerator(correctSong){
 
     const p = document.createElement("p");
 
-    p.innerText = correctSong.artist;
+    p.innerText = gameState.currentSong.artist;
 
     p.classList.add("artistName")
 
@@ -50,13 +51,13 @@ function optionsGenerator(songs){
     }
 }
 
-function barGenerator(correctSong){
+function barGenerator(){
     const progress = document.querySelector("#progress");
 
     document.addEventListener("click", () => {
 
         const audio = document.createElement("audio");
-        audio.src = correctSong.songSrc;
+        audio.src = gameState.currentSong.songSrc;
 
         let start;
         let end;
@@ -66,7 +67,7 @@ function barGenerator(correctSong){
         audio.addEventListener("loadedmetadata", () => {
 
             start = Math.floor(Math.random() * (audio.duration - 10));
-            end = start + correctSong.duration;
+            end = start + gameState.duration;
 
             console.log("Empieza " + start)
             console.log("Termina en " + end)
@@ -81,7 +82,7 @@ function barGenerator(correctSong){
         audio.addEventListener("timeupdate", () => {
 
             const transcurrido = audio.currentTime - start;
-            const porcentaje = (transcurrido / correctSong.duration) * 100;
+            const porcentaje = (transcurrido / gameState.duration) * 100;
 
             progress.style.width = `${Math.min(porcentaje, 100)}%`;
 

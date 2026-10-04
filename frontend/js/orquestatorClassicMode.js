@@ -1,4 +1,5 @@
 import { ClassicUIGenerator } from "./classicModeUI.js"
+import { gameState, selectCurrentSong } from "./gameState.js";
 
 const buttons = document.querySelectorAll(".song");
 
@@ -7,21 +8,24 @@ const songs = [{
         artist: "Radamel",
         songSrc: "./assets/audio/Milo J, Radamel - Radamel (Visualizer) [eKX1uoKDDaI].mp3",
         imageSrc: "./assets/images/LEMC.jpeg",
-        duration: 10,
         isCorrect: true
     },
     {
-        name: "Flaca",
-        src: "",
-        duration: 0,
-        isCorrect: false
+        name: "Tú sí sabes quererme",
+        artist: "Natalia Lafourcade",
+        songSrc: "./assets/audio/Tú Sí Sabes Quererme.mp3",
+        imageSrc: "./assets/images/TSSQ.jpeg",
+        isCorrect: true
     },
     {
-        name: "Nose",
-        src: "",
-        duration: 22,
-        isCorrect: false
+        name: "Negra Murguera",
+        artist: "Bersuit",
+        songSrc: "./assets/audio/Negra Murguera.mp3",
+        imageSrc: "./assets/images/NM.jpeg",
+        isCorrect: true
     }
 ]
 
+gameState.duration = 10;
+gameState.currentSong = selectCurrentSong(songs)
 ClassicUIGenerator(songs)
