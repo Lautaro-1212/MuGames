@@ -36,13 +36,13 @@ function optionsGenerator(songs){
 
         button.innerText = song.name;
 
-        button.dataset.value = song.isCorrect;
+        button.dataset.name = song.name;
 
         button.classList.add("songOptions") 
 
         button.addEventListener("click", () => {
             
-            const isCorrect = button.dataset.value === "true";
+            const isCorrect = gameState.currentSong.name === button.dataset.name;
 
             console.log(isCorrect);
         });

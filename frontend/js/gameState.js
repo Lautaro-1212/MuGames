@@ -1,5 +1,5 @@
 export const gameState = {
-    duration: null  ,
+    duration: null,
     currentSong: selectCurrentSong,
 }
 
