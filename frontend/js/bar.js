@@ -1,39 +1,43 @@
 const progress = document.querySelector("#progress");
 
-export function progressBar(song){
+export function progressBar(song) {
     document.addEventListener("click", () => {
 
-    const audio = document.createElement("audio");
+        const audio = document.createElement("audio");
+        audio.src = song.songSrc;
 
-    audio.src = song.songSrc;
+        let start;
+        let end;
 
-    document.body.appendChild(audio);
+        document.body.appendChild(audio);
 
-    const end = song.start + song.duration;
+        audio.addEventListener("loadedmetadata", () => {
 
-    audio.addEventListener("loadedmetadata", () => {
-        console.log("Duración:", audio.duration);
+            start = Math.floor(Math.random() * (audio.duration - 10));
+            end = start + song.duration;
 
-        audio.currentTime = song.start;
-    });
+            console.log("Empieza " + start)
+            console.log("Termina en " + end)
 
-    audio.addEventListener("timeupdate", () => {
+            audio.currentTime = start;
 
-        const transcurrido = audio.currentTime - song.start;
+            audio.play()
+                .then(() => console.log("REPRODUCIENDO"))
+                .catch(error => console.error(error));
+        });
 
-        const porcentaje = (transcurrido / song.duration) * 100;
+        audio.addEventListener("timeupdate", () => {
 
-        progress.style.width = `${Math.min(porcentaje, 100)}%`;
+            const transcurrido = audio.currentTime - start;
+            const porcentaje = (transcurrido / song.duration) * 100;
 
-        if (audio.currentTime >= end) {
-            audio.pause();
-            progress.style.width = "100%";
-        }
-    });
+            progress.style.width = `${Math.min(porcentaje, 100)}%`;
 
-    audio.play()
-        .then(() => console.log("REPRODUCIENDO"))
-        .catch(error => console.error(error));
+            if (audio.currentTime >= end) {
+                audio.pause();
+                progress.style.width = "100%";
+            }
+        });
 
     }, { once: true });
 }
