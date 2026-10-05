@@ -5,9 +5,11 @@ const optionsSongsContainer = document.querySelector(".optionsSongs-container")
 
 export function ClassicUIGenerator(songs){
 
-    informationSongGenerator(gameState.currentSong)
+    informationSongGenerator()
+
     optionsGenerator(songs)
-    barGenerator(gameState.currentSong)
+
+    barGenerator()
 }
 
 function informationSongGenerator(){
