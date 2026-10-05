@@ -1,9 +1,10 @@
 package org.example.backend.repository;
 
-import org.example.backend.model.Song;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
+import org.example.backend.model.Song;
+
+//@Repository
 public interface SongRepository extends JpaRepository<Song, Long> {
 }
