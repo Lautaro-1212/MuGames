@@ -5,6 +5,5 @@ import org.springframework.stereotype.Repository;
 
 import org.example.backend.model.Song;
 
-//@Repository
 public interface SongRepository extends JpaRepository<Song, Long> {
 }

@@ -43,6 +43,7 @@ public class SongController {
         return ResponseEntity.status(HttpStatus.CREATED).body(newSong);
     }
 
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         songService.deleteById(id);
         return ResponseEntity.ok().build();
