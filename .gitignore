@@ -6,7 +6,6 @@
 target/
 *.class
 
-
 # Gradle
 .gradle/
 build/

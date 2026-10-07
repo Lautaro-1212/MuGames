@@ -4,9 +4,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import org.example.backend.model.Song;
 import org.example.backend.service.SongService;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,15 +34,22 @@ public class SongController {
         Optional<Song> song = songService.getById(id);
 
         if (song.isEmpty()){
-            return  ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         } else{
             return ResponseEntity.ok(song.get());
         }
     }
 
     @PostMapping
-    public ResponseEntity<Song> save(@RequestBody Song song){
-        Song newSong = songService.save(song);
+    public ResponseEntity<Song> save(
+            @RequestParam String name,
+            @RequestParam String artist,
+            @RequestParam MultipartFile audio,
+            @RequestParam MultipartFile image
+    ) throws IOException {
+
+        Song newSong = songService.saveSong(name, artist, audio, image);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(newSong);
     }
 
