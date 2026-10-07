@@ -1,9 +1,8 @@
 import { ClassicUIGenerator } from "./classicModeUI.js"
 import { gameState, selectCurrentSong } from "./gameState.js";
+import { getSongs } from "./gameLogic.js";
 
-const buttons = document.querySelectorAll(".song");
-
-const songs = [{
+/*const songs = [{
         name: "Radamel",
         artist: "Radamel",
         songSrc: "./assets/audio/Milo J, Radamel - Radamel (Visualizer) [eKX1uoKDDaI].mp3",
@@ -21,8 +20,9 @@ const songs = [{
         songSrc: "./assets/audio/Negra Murguera.mp3",
         imageSrc: "./assets/images/NM.jpeg",
     }
-]
+]*/
 
+const songs = await getSongs();
 gameState.duration = 10;
 gameState.currentSong = selectCurrentSong(songs)
 ClassicUIGenerator(songs)

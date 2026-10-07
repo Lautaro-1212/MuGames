@@ -15,7 +15,7 @@ export function ClassicUIGenerator(songs){
 function informationSongGenerator(){
     const img = document.createElement("img")
 
-    img.src = gameState.currentSong.imageSrc;
+    img.src = `http://localhost:8080/files/images/${gameState.currentSong.imageSrc}`;
 
     img.alt = "Imagen cancion";
 
@@ -59,7 +59,7 @@ function barGenerator(){
     document.addEventListener("click", () => {
 
         const audio = document.createElement("audio");
-        audio.src = gameState.currentSong.songSrc;
+        audio.src = `http://localhost:8080/files/audio/${gameState.currentSong.songSrc}`;
 
         let start;
         let end;
