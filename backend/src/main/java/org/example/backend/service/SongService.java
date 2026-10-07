@@ -32,6 +32,10 @@ public class SongService {
         return songRepository.findById(id);
     }
 
+    public List<Song> getThreeRandom(){
+        return songRepository.findThreeRandom();
+    }
+
     public Song save(Song song){
         return songRepository.save(song);
     }

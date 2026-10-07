@@ -29,6 +29,17 @@ public class SongController {
         return ResponseEntity.ok(list);
     }
 
+    @GetMapping("/random")
+    public ResponseEntity<List<Song>> getThreeRandom(){
+        List<Song> songs = songService.getThreeRandom();
+
+        if (songs.size() < 3){
+            return ResponseEntity.badRequest().build();
+        }
+
+        return ResponseEntity.ok(songs);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Song> getById(@PathVariable Long id){
         Optional<Song> song = songService.getById(id);
