@@ -27,11 +27,15 @@ gameState.state = "NEXT_ROUND";
 export async function orquestator(){
     switch (gameState.state){
 
+        case "DIFFICULTY":
+            
+
         case "NEXT_ROUND":
             const songs = await getSongs();
             gameState.duration = 10;
             gameState.currentSong = selectCurrentSong(songs)
             ClassicUIGenerator(songs)
+            break;
     }
 }
 

@@ -1,22 +1,30 @@
-import { gameState } from "./gameState.js"
-import { isCorrect } from "./gameLogic.js"
+import { gameState } from "./gameState.js";
+import { isCorrect } from "./gameLogic.js";
 
-const songInformation = document.querySelector(".songInformation")
-const optionsSongsContainer = document.querySelector(".optionsSongs-container")
-const progress = document.querySelector("#progress");
-const tvframe = document.querySelector(".tv-frame")
+const tvframe = document.querySelector(".tv-frame");
+const tvscreen = document.querySelector(".tv-screen");
 
-export function ClassicUIGenerator(songs){
+let songInformation;
+let optionsSongsContainer;
+let progress;
 
+export function ClassicUIGenerator(songs) {
     clearSceen();
 
-    informationSongGenerator()
+    createClassicMode();
 
-    optionsGenerator(songs)
+    songInformation = tvscreen.querySelector(".songInformation");
+    optionsSongsContainer = tvscreen.querySelector(".optionsSongs-container");
+    progress = tvscreen.querySelector("#progress");
 
-    barGenerator()
+    informationSongGenerator();
+    optionsGenerator(songs);
+    barGenerator();
+    pointGenerator();
+}
 
-    pointGenerator()
+export function DificultySelecctorGenerator(){
+
 }
 
 function informationSongGenerator(){
@@ -110,8 +118,40 @@ function pointGenerator(){
     tvframe.append(points);
 }
 
-function clearSceen(){
-    songInformation.innerHTML = "";
-    optionsSongsContainer.innerHTML = "";
-    progress.innerHTML = "";
+function clearSceen() {
+    tvscreen.innerHTML = "";
+}
+
+function createClassicMode() {
+    const classicModeContainer = document.createElement("div");
+    classicModeContainer.classList.add("classicModeContainer");
+
+    const question = document.createElement("h1");
+    question.classList.add("question");
+    question.textContent = "¿Que canción es?";
+
+    const songInformation = document.createElement("div");
+    songInformation.classList.add("songInformation");
+
+    const progressContainer = document.createElement("div");
+    progressContainer.classList.add("progress-container");
+
+    const progress = document.createElement("div");
+    progress.id = "progress";
+
+    progressContainer.appendChild(progress);
+
+    classicModeContainer.append(
+        question,
+        songInformation,
+        progressContainer
+    );
+
+    const optionsSongsContainer = document.createElement("div");
+    optionsSongsContainer.classList.add("optionsSongs-container");
+
+    tvscreen.append(
+        classicModeContainer,
+        optionsSongsContainer
+    );
 }

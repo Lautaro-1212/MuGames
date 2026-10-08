@@ -66,6 +66,6 @@ Desktop.ini
 # macOS
 .DS_Storeasdwa
 
-tests/
+test/
 
 mugames.db
