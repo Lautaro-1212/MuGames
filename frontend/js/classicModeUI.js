@@ -4,6 +4,7 @@ import { isCorrect } from "./gameLogic.js"
 const songInformation = document.querySelector(".songInformation")
 const optionsSongsContainer = document.querySelector(".optionsSongs-container")
 const progress = document.querySelector("#progress");
+const tvframe = document.querySelector(".tv-frame")
 
 export function ClassicUIGenerator(songs){
 
@@ -105,6 +106,8 @@ function pointGenerator(){
     const points = document.querySelector(".points");
 
     points.innerText = gameState.points;
+
+    tvframe.append(points);
 }
 
 function clearSceen(){
