@@ -1,6 +1,8 @@
 export const gameState = {
+    state: null,
     duration: null,
     currentSong: selectCurrentSong,
+    points: 0
 }
 
 export function selectCurrentSong(songs) {

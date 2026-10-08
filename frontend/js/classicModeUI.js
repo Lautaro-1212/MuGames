@@ -1,15 +1,21 @@
 import { gameState } from "./gameState.js"
+import { isCorrect } from "./gameLogic.js"
 
 const songInformation = document.querySelector(".songInformation")
 const optionsSongsContainer = document.querySelector(".optionsSongs-container")
+const progress = document.querySelector("#progress");
 
 export function ClassicUIGenerator(songs){
+
+    clearSceen();
 
     informationSongGenerator()
 
     optionsGenerator(songs)
 
     barGenerator()
+
+    pointGenerator()
 }
 
 function informationSongGenerator(){
@@ -44,9 +50,8 @@ function optionsGenerator(songs){
 
         button.addEventListener("click", () => {
             
-            const isCorrect = gameState.currentSong.name === button.dataset.name;
+            isCorrect(button.dataset.name)
 
-            console.log(isCorrect);
         });
 
         optionsSongsContainer.appendChild(button)
@@ -54,7 +59,6 @@ function optionsGenerator(songs){
 }
 
 function barGenerator(){
-    const progress = document.querySelector("#progress");
 
     document.addEventListener("click", () => {
 
@@ -64,7 +68,7 @@ function barGenerator(){
         let start;
         let end;
 
-        document.body.appendChild(audio);
+        optionsSongsContainer.appendChild(audio);
 
         audio.addEventListener("loadedmetadata", () => {
 
@@ -95,4 +99,16 @@ function barGenerator(){
         });
 
     }, { once: true });
+}
+
+function pointGenerator(){
+    const points = document.querySelector(".points");
+
+    points.innerText = gameState.points;
+}
+
+function clearSceen(){
+    songInformation.innerHTML = "";
+    optionsSongsContainer.innerHTML = "";
+    progress.innerHTML = "";
 }
