@@ -23,10 +23,6 @@ export function ClassicUIGenerator(songs) {
     pointGenerator();
 }
 
-export function DificultySelecctorGenerator(){
-
-}
-
 function informationSongGenerator(){
     const img = document.createElement("img")
 

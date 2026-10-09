@@ -85,3 +85,24 @@ audio {
     align-items: center;
     flex-direction: column;
 }
+
+.selecctDificultyContainer{
+
+    display: flex;
+
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: var(--color-background-frame);
+    border: 20px solid var(--color-border-screen);
+    border-radius: 40px;
+
+    padding: 10%;
+}
+
+.difficultyOptionsContainer{
+    display: flex;
+    margin-top: 20%;
+    gap: 2rem;
+}

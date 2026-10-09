@@ -1,0 +1,41 @@
+.difficultyOptions{
+    background-color: #8d56fd;
+
+    font-family: "Cooper BT", serif;
+    font-size: 250%;
+    
+    border: none;
+    border-radius: 20px;
+    padding: 0.4rem;
+
+    cursor: pointer;
+}
+
+.difficultyOptions:hover{
+    background-color: #6a40bd;
+}
+
+.easy{
+    color: #00bf63;
+}
+
+.easy:hover{
+    color: #01964e
+}
+
+.medium{
+    color:#ffde59;
+}
+
+.medium:hover{
+    color:#d1b649;
+}
+
+.hard{
+    color: #ff3131;
+}
+
+.hard:hover{
+    color: #bc2525;
+}
+

@@ -1,0 +1,15 @@
+.dificultsTitle{
+    margin: 0;
+    height: auto;
+
+    font-family: "Cooper BT", serif;
+    font-size: clamp(4rem, 5vw, 10rem);
+    color: var(--color-font-title);
+    text-decoration: none;
+
+    text-shadow:
+        0 0 5px var(--color-shadow-options),
+        0 0 5px var(--color-shadow-options),
+        0 0 20px var(--color-shadow-options),
+        0 0 40px var(--color-shadow-options);
+}

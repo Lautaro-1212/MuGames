@@ -1,4 +1,5 @@
 import { ClassicUIGenerator } from "./classicModeUI.js"
+import { DificultySelecctorGenerator } from "./selectDifficultyUI.js";
 import { gameState, selectCurrentSong } from "./gameState.js";
 import { getSongs } from "./gameLogic.js";
 
@@ -22,17 +23,17 @@ import { getSongs } from "./gameLogic.js";
     }
 ]*/
 
-gameState.state = "NEXT_ROUND";
+gameState.state = "DIFFICULTY";
 
 export async function orquestator(){
     switch (gameState.state){
 
         case "DIFFICULTY":
-            
+            DificultySelecctorGenerator()
+            break;
 
         case "NEXT_ROUND":
             const songs = await getSongs();
-            gameState.duration = 10;
             gameState.currentSong = selectCurrentSong(songs)
             ClassicUIGenerator(songs)
             break;
