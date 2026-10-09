@@ -64,46 +64,41 @@ function optionsGenerator(songs){
 }
 
 function barGenerator(){
+    const audio = document.createElement("audio");
+    audio.src = `http://localhost:8080/files/audio/${gameState.currentSong.songSrc}`;
 
-    document.addEventListener("click", () => {
+    let start;
+    let end;
 
-        const audio = document.createElement("audio");
-        audio.src = `http://localhost:8080/files/audio/${gameState.currentSong.songSrc}`;
+    optionsSongsContainer.appendChild(audio);
 
-        let start;
-        let end;
+    audio.addEventListener("loadedmetadata", () => {
 
-        optionsSongsContainer.appendChild(audio);
+    start = Math.floor(Math.random() * (audio.duration - 10));
+    end = start + gameState.duration;
 
-        audio.addEventListener("loadedmetadata", () => {
+    console.log("Empieza " + start)
+    console.log("Termina en " + end)
 
-            start = Math.floor(Math.random() * (audio.duration - 10));
-            end = start + gameState.duration;
+    audio.currentTime = start;
 
-            console.log("Empieza " + start)
-            console.log("Termina en " + end)
+    audio.play()
+        .then(() => console.log("REPRODUCIENDO"))
+        .catch(error => console.error(error));
+    });
 
-            audio.currentTime = start;
+    audio.addEventListener("timeupdate", () => {
 
-            audio.play()
-                .then(() => console.log("REPRODUCIENDO"))
-                .catch(error => console.error(error));
-        });
+        const transcurrido = audio.currentTime - start;
+        const porcentaje = (transcurrido / gameState.duration) * 100;
 
-        audio.addEventListener("timeupdate", () => {
+        progress.style.width = `${Math.min(porcentaje, 100)}%`;
 
-            const transcurrido = audio.currentTime - start;
-            const porcentaje = (transcurrido / gameState.duration) * 100;
-
-            progress.style.width = `${Math.min(porcentaje, 100)}%`;
-
-            if (audio.currentTime >= end) {
-                audio.pause();
-                progress.style.width = "100%";
-            }
-        });
-
-    }, { once: true });
+        if (audio.currentTime >= end) {
+            audio.pause();
+            progress.style.width = "100%";
+        }
+    });
 }
 
 function pointGenerator(){
