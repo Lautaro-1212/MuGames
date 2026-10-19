@@ -106,3 +106,30 @@ audio {
     margin-top: 20%;
     gap: 2rem;
 }
+
+.gameOverContainer{
+    display: flex;
+
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: var(--color-background-frame);
+    border: 20px solid var(--color-border-screen);
+    border-radius: 40px;
+
+    padding: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.gameOverOptionsContainer{
+    display: flex;
+    margin-top: 20%;
+    gap: 5rem;
+    align-items: center;
+}
+
+.gameOverContainer .salir{
+    padding: 2rem;
+}

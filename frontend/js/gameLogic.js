@@ -24,6 +24,9 @@ export function isCorrect(selection){
         gameState.points += 100;
         gameState.state = "NEXT_ROUND"
         orquestator();
+    } else {
+        gameState.state = "GAME_OVER"
+        orquestator()
     }
 }   
 
@@ -54,3 +57,8 @@ export function selectDifficult(difficulty){
             console.log("Error")
     }
 } 
+
+export function replay(){
+    gameState.state = "DIFFICULTY"
+    orquestator();
+}

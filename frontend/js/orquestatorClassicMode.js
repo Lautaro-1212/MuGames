@@ -1,5 +1,6 @@
 import { ClassicUIGenerator } from "./classicModeUI.js"
 import { DificultySelecctorGenerator } from "./selectDifficultyUI.js";
+import { GameOverGenerator } from "./gameOverUI.js";
 import { gameState, selectCurrentSong } from "./gameState.js";
 import { getSongs } from "./gameLogic.js";
 
@@ -36,6 +37,10 @@ export async function orquestator(){
             const songs = await getSongs();
             gameState.currentSong = selectCurrentSong(songs)
             ClassicUIGenerator(songs)
+            break;
+
+        case "GAME_OVER":
+            GameOverGenerator();
             break;
     }
 }

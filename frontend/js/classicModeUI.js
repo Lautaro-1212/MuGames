@@ -1,5 +1,6 @@
 import { gameState } from "./gameState.js";
 import { isCorrect } from "./gameLogic.js";
+import { orquestator } from "./orquestatorClassicMode.js";
 
 const tvframe = document.querySelector(".tv-frame");
 const tvscreen = document.querySelector(".tv-screen");
@@ -97,6 +98,8 @@ function barGenerator(){
         if (audio.currentTime >= end) {
             audio.pause();
             progress.style.width = "100%";
+            gameState.state = "GAME_OVER"
+            orquestator()
         }
     });
 }

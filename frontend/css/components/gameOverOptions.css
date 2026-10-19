@@ -1,0 +1,14 @@
+.gameOverOptions{
+    background-color: #737373;
+
+    font-family: "Cooper BT", serif;
+    font-size: 250%;
+    text-decoration: none;
+    color: #ff3131;
+    
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 0.4rem;
+
+    cursor: pointer;
+}
