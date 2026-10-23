@@ -1,6 +1,7 @@
 package org.example.backend.service;
 
 import org.example.backend.model.Player;
+import org.example.backend.model.Song;
 import org.example.backend.repository.PlayerRepository;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,13 @@ public class PlayerService {
         return playerRepository.findById(id);
     }
 
-    public Player save(Player player){
+    public Player save(String name, String school, int points ){
+        Player player = new Player();
+
+        player.setName(name);
+        player.setPoints(points);
+        player.setSchool(school);
+
         return playerRepository.save(player);
     }
 
