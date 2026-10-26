@@ -1,0 +1,9 @@
+.inputFormulary{
+    border: 5px solid #737373;
+    border-radius: 7px;
+
+    background-color: black;
+    color: white;
+
+    font-size: 30px;
+}

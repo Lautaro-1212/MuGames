@@ -3,6 +3,7 @@ import { DificultySelecctorGenerator } from "./selectDifficultyUI.js";
 import { GameOverGenerator } from "./gameOverUI.js";
 import { gameState, selectCurrentSong } from "./gameState.js";
 import { getSongs } from "./gameLogic.js";
+import { formularyUIGenerator } from "./formularyGeneratorUI.js";
 
 /*const songs = [{
         name: "Radamel",
@@ -24,10 +25,14 @@ import { getSongs } from "./gameLogic.js";
     }
 ]*/
 
-gameState.state = "DIFFICULTY";
+gameState.state = "FORMULARY";
 
 export async function orquestator(){
     switch (gameState.state){
+
+        case "FORMULARY":
+            formularyUIGenerator()
+            break;
 
         case "DIFFICULTY":
             DificultySelecctorGenerator()
