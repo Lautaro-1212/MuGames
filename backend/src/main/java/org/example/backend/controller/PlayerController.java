@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/song")
+@RequestMapping("/api/player")
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 public class PlayerController {
 
@@ -43,7 +43,7 @@ public class PlayerController {
     @PostMapping
     public ResponseEntity<Player> save(
             @RequestParam String name,
-            @RequestParam int points,
+            @RequestParam Integer points,
             @RequestParam String school
     ) throws IOException {
 
