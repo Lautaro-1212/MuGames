@@ -1,3 +1,5 @@
+import { verifyFormulary } from "./gameLogic.js";
+
 const tvscreen = document.querySelector(".tv-screen");
 
 export function formularyUIGenerator() {
@@ -17,6 +19,8 @@ export function formularyUIGenerator() {
             alert("Por favor, completá ambos campos.");
             return;
         }
+
+        verifyFormulary(name, school)
 
         console.log("Nombre:", name);
         console.log("Escuela:", school);

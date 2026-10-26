@@ -8,4 +8,6 @@
         0 0 5px var(--color-shadow-title),
         0 0 20px var(--color-shadow-title),
         0 0 40px var(--color-shadow-title);
+
+    margin: 0;
 }

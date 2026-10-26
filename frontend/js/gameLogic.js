@@ -62,3 +62,11 @@ export function replay(){
     gameState.state = "DIFFICULTY"
     orquestator();
 }
+
+export function verifyFormulary(name, school){
+    gameState.playerName = name;
+    gameState.playerSchool = school;
+
+    gameState.state = "DIFFICULTY"
+    orquestator()
+} 
