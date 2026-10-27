@@ -1,4 +1,4 @@
-import { verifyFormulary } from "./gameLogic.js";
+import { setPlayer } from "./gameLogic.js";
 
 const tvscreen = document.querySelector(".tv-screen");
 
@@ -20,7 +20,7 @@ export function formularyUIGenerator() {
             return;
         }
 
-        verifyFormulary(name, school)
+        setPlayer(name, school)
 
         console.log("Nombre:", name);
         console.log("Escuela:", school);

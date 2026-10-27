@@ -1,3 +1,11 @@
+document.addEventListener("submit", (event) => {
+    console.trace("SE INTENTÓ ENVIAR UN FORMULARIO", event.target);
+}, true);
+
+window.addEventListener("beforeunload", () => {
+    console.trace("LA PÁGINA ESTÁ POR DESCARGARSE");
+});
+
 import { ClassicUIGenerator } from "./classicModeUI.js"
 import { DificultySelecctorGenerator } from "./selectDifficultyUI.js";
 import { GameOverGenerator } from "./gameOverUI.js";

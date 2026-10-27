@@ -50,6 +50,8 @@ function optionsGenerator(songs){
 
         button.innerText = song.name;
 
+        button.type = "button";
+
         button.dataset.name = song.name;
 
         button.classList.add("songOptions") 
