@@ -41,15 +41,18 @@ public class PlayerController {
     }
 
     @PostMapping
-    public ResponseEntity<Player> save(
-            @RequestParam String name,
-            @RequestParam Integer points,
-            @RequestParam String school
-    ) throws IOException {
+    public ResponseEntity<Player> save(@RequestBody Player player)
+            throws IOException {
 
-        Player newPlayer = playerService.save(name, school, points);
+        Player newPlayer = playerService.save(
+                player.getName(),
+                player.getSchool(),
+                player.getPoints()
+        );
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(newPlayer);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(newPlayer);
     }
 
     @DeleteMapping("/{id}")
