@@ -40,6 +40,17 @@ public class PlayerController {
         }
     }
 
+    @GetMapping("/top5")
+    public ResponseEntity<Player> getTop5(){
+        Optional<Player> players = playerService.getTop5Players();
+
+        if(players.isEmpty()){
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(players.get());
+        }
+    }
+
     @PostMapping
     public ResponseEntity<Player> save(@RequestBody Player player)
             throws IOException {
@@ -61,3 +72,4 @@ public class PlayerController {
         return ResponseEntity.ok().build();
     }
 }
+
