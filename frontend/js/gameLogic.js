@@ -1,12 +1,12 @@
 import { gameState } from "./gameState.js";
 import { orquestator } from "./orquestatorClassicMode.js";
 
-export async function getSongs(){
-    let songs
+export async function getSongs() {
+    const response = await fetch("http://localhost:8080/api/song/random");
 
-    const response = await fetch("http://localhost:8080/api/song/random")
-    
-    return songs = await response.json(); 
+    const body = await response.text();
+
+    return JSON.parse(body);
 }
 
 export async function getSongById(id){
@@ -18,8 +18,6 @@ export async function getSongById(id){
 }   
 
 export async function isCorrect(selection) {
-    console.log("1. Entró a isCorrect");
-
     const correct = selection === gameState.currentSong.name;
 
     if (correct) {
@@ -29,18 +27,13 @@ export async function isCorrect(selection) {
     } else {
         gameState.state = "GAME_OVER";
 
-        console.log("2. Antes del POST");
-
         try {
             await safePlayerData();
-            console.log("3. POST finalizado");
         } catch (error) {
             console.error("Error al guardar:", error);
         }
 
-        console.log("4. Antes de orquestator");
         orquestator();
-        console.log("5. Después de llamar a orquestator");
     }
 }
 
@@ -110,3 +103,11 @@ async function safePlayerData() {
 
     console.log("RESPUESTA DEL POST:", response.status);
 }   
+
+export async function getTop5() {
+    const response = await fetch("http://localhost:8080/api/player/top5");
+
+    const body = await response.text();
+
+    return JSON.parse(body);
+}
