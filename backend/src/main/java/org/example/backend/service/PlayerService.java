@@ -24,11 +24,15 @@ public class PlayerService {
         return playerRepository.findById(id);
     }
 
-    public Player save(String name, String school, int points ){
+    public List<Player> getTop5Players(){
+        return playerRepository.getTop5Players();
+    }
+
+    public Player save(String name, String school, int points ) {
         Player player = new Player();
 
         player.setName(name);
-        player.setPoints(points);
+        player.setScore(points);
         player.setSchool(school);
 
         return playerRepository.save(player);

@@ -109,7 +109,7 @@ function barGenerator(){
 function pointGenerator(){
     const points = document.querySelector(".points");
 
-    points.innerText = gameState.points;
+    points.innerText = gameState.score;
 
     tvframe.append(points);
 }

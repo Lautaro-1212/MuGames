@@ -21,7 +21,7 @@ export async function isCorrect(selection) {
     const correct = selection === gameState.currentSong.name;
 
     if (correct) {
-        gameState.points += 100;
+        gameState.score += 100;
         gameState.state = "NEXT_ROUND";
         orquestator();
     } else {
@@ -66,8 +66,6 @@ export function selectDifficult(difficulty){
 } 
 
 export function replay(){
-    //verifyRecord();
-
     gameState.state = "DIFFICULTY"
     orquestator();
 }
@@ -80,11 +78,6 @@ export function setPlayer(name, school){
     orquestator()
 } 
 
-function verifyRecord(){
-    if(gameState.points > gameState.record){
-        gameState.record = gameState.points;
-    }
-}
 
 async function safePlayerData() {
     console.log("ANTES DEL POST");
@@ -96,7 +89,7 @@ async function safePlayerData() {
         },
         body: JSON.stringify({
             name: gameState.playerName,
-            points: gameState.points,
+            score: gameState.score,
             school: gameState.playerSchool
         })
     });
@@ -104,10 +97,3 @@ async function safePlayerData() {
     console.log("RESPUESTA DEL POST:", response.status);
 }   
 
-export async function getTop5() {
-    const response = await fetch("http://localhost:8080/api/player/top5");
-
-    const body = await response.text();
-
-    return JSON.parse(body);
-}

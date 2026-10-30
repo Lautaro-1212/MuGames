@@ -8,8 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface PlayerRepository extends JpaRepository<Player, Long>{
-
-    @Query(value = "SELECT * FROM song ORDER BY RANKING() LIMIT 5", nativeQuery = true)
-    List<Song> findThreeRandom();
-
+    @Query(value = "SELECT * FROM player ORDER BY score DESC LIMIT 5", nativeQuery = true)
+    List<Player> getTop5Players();
 }

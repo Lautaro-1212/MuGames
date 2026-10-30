@@ -18,6 +18,6 @@ public class Player {
     private Long id;
 
     private String name;
-    private int points;
+    private int score;
     private String school;
 }

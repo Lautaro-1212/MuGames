@@ -41,14 +41,9 @@ public class PlayerController {
     }
 
     @GetMapping("/top5")
-    public ResponseEntity<Player> getTop5(){
-        Optional<Player> players = playerService.getTop5Players();
-
-        if(players.isEmpty()){
-            return ResponseEntity.notFound().build();
-        } else {
-            return ResponseEntity.ok(players.get());
-        }
+    public ResponseEntity<List<Player>> getTop5(){
+        List<Player> list = playerService.getTop5Players();
+        return ResponseEntity.ok(list);
     }
 
     @PostMapping
@@ -58,7 +53,7 @@ public class PlayerController {
         Player newPlayer = playerService.save(
                 player.getName(),
                 player.getSchool(),
-                player.getPoints()
+                player.getScore()
         );
 
         return ResponseEntity

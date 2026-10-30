@@ -2,7 +2,7 @@ export const gameState = {
     state: null,
     duration: null,
     currentSong: selectCurrentSong,
-    points: 0,
+    score: 0,
     record: 0,
     playerName: null,  
     playerSchool: null
