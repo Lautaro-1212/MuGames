@@ -1,4 +1,5 @@
 import { selectDifficult } from "./gameLogic.js";
+import { gameState } from "./gameState.js";
 
 const tvframe = document.querySelector(".tv-frame");
 const tvscreen = document.querySelector(".tv-screen");
@@ -7,6 +8,8 @@ export function DificultySelecctorGenerator() {
     clearSceen();
 
     createDifficultySelector();
+
+    pointGenerator()
 
     difficultyOptionsGenerator();
 }
@@ -55,4 +58,12 @@ function difficultyOptionsGenerator() {
 
 function clearSceen() {
     tvscreen.innerHTML = "";
+}
+
+function pointGenerator(){
+    const points = document.querySelector(".points");
+
+    points.innerText = gameState.score;
+
+    tvframe.append(points);
 }
