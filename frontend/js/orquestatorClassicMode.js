@@ -36,6 +36,7 @@ export async function orquestator(){
             break;
 
         case "DIFFICULTY":
+            gameState.score = 0;
             DificultySelecctorGenerator()
             break;
 
